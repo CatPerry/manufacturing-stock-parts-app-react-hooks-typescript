@@ -1,0 +1,161 @@
+{
+  "parts": [
+    {
+      "id": "1",
+      "name": "Geiger Counter",
+      "price": "2.99",
+      "instock": "3024"
+    },
+    {
+      "id": 2,
+      "name": "Dragon Tank",
+      "price": "399.84",
+      "instock": "24"
+    },
+    {
+      "id": 3,
+      "name": "Bug Detector",
+      "price": "23.72",
+      "instock": "24"
+    },
+    {
+      "id": 4,
+      "name": "Periscope",
+      "price": "89.99",
+      "instock": "7"
+    },
+    {
+      "id": 5,
+      "name": "Industrial Laser",
+      "price": "2764.00",
+      "instock": "7832"
+    },
+    {
+      "id": 6,
+      "name": "Wetsuit",
+      "price": "99.00",
+      "instock": "753"
+    },
+    {
+      "id": 7,
+      "name": "Cloaking Device",
+      "price": "2432.12",
+      "instock": "12"
+    },
+    {
+      "id": 8,
+      "name": "Table Umbrella",
+      "price": "29.99",
+      "instock": "10324"
+    },
+    {
+      "id": 9,
+      "name": "X-Ray Glasses",
+      "price": "2349.00",
+      "instock": "156"
+    },
+    {
+      "id": 10,
+      "name": "Yo-Yo Saw",
+      "price": "45.00",
+      "instock": "998"
+    },
+    {
+      "id": 11,
+      "name": "Radioactive Lint",
+      "price": "1.12",
+      "instock": "54323"
+    },
+    {
+      "id": 12,
+      "name": "Dentonite Toothpaste",
+      "price": "74.03",
+      "instock": "76"
+    },
+    {
+      "id": 13,
+      "name": "Invisibility Cloak",
+      "price": "902.32",
+      "instock": "983"
+    },
+    {
+      "id": 14,
+      "name": "Identigraph",
+      "price": "324.23",
+      "instock": "99"
+    },
+
+    {
+      "id": 15,
+      "name": "Pistachios",
+      "price": "0.01",
+      "instock": "343254"
+    },
+    {
+      "id": 16,
+      "name": "Snooper robotic dog",
+      "price": "8932.00",
+      "instock": "3"
+    },
+    {
+      "id": 17,
+      "name": "Zorin Microchip",
+      "price": "735.43",
+      "instock": "2143"
+    },
+    {
+      "id": 18,
+      "name": "Rake Scanner",
+      "price": "34.00",
+      "instock": "3"
+    },
+    {
+      "id": 19,
+      "name": "Exploding Alarm Clock",
+      "price": "35.93",
+      "instock": "3432"
+    },
+    {
+      "id": 20,
+      "name": "Dragon flamethrower",
+      "price": "494.34",
+      "instock": "32"
+    },
+    {
+      "id": 21,
+      "name": "Earring lock pick",
+      "price": "7.95",
+      "instock": "2343"
+    },
+    {
+      "id": 22,
+      "name": "Sea-Vac drill",
+      "price": "1328.93",
+      "instock": "0"
+    },
+    {
+      "id": 23,
+      "name": "Industrial-sized circular saw",
+      "price": "3.43",
+      "instock": "432"
+    },
+    {
+      "id": 24,
+      "name": "Single Digit Sonic Agitator",
+      "price": "9999.01",
+      "instock": "3"
+    },
+    {
+      "id": 25,
+      "name": "Dream simulator",
+      "price": "74539.32",
+      "instock": "1"
+    },
+    {
+      "id": 26,
+      "name": "SPECTRE ring",
+      "price": "9043.03",
+      "instock": "9"
+    }
+  ]
+}

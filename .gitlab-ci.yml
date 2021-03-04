@@ -1,0 +1,22 @@
+stages:
+  - build
+#  - release
+
+build:
+  image: node:lts-alpine
+  script:
+    - npm install
+    - npm run build
+  only:
+    - merge_requests
+    - master
+
+#release:
+#  stage: release
+#  image: registry.gitlab.com/gitlab-org/release-cli:latest
+#  script:
+#    - echo 'running release_job'
+#  release:
+#    name: 'Release $CI_COMMIT_SHA'
+#  only:
+#    - master

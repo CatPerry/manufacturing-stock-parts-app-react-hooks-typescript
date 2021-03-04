@@ -1,0 +1,63 @@
+table {
+	width: 100%;
+}
+
+table,
+td,
+th {
+	border-collapse: collapse;
+	border: 1px solid rgb(187, 187, 187);
+	text-align: left;
+}
+
+td,
+th {
+	line-height: 40px;
+	padding: 9px 0 9px 12px;
+}
+
+tbody tr:hover {
+	background-color: rgb(241, 243, 245);
+}
+
+.search-panel {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	padding: 10px 25px 20px 20px;
+	background-color: rgb(241, 243, 245);
+	color: #000;
+}
+
+input[type='search'] {
+	padding: 5px 8px;
+	width: 300px;
+}
+
+.reset-search-button {
+	margin: 0 0 0 20px;
+	align-self: flex-end;
+	padding: 5px 9px;
+}
+
+.dropdown {
+	position: relative;
+	z-index: 5;
+}
+
+.autocomplete ul {
+	position: absolute;
+	top: 20;
+	background-color: #fff;
+	border: 1px solid rgb(187, 187, 187);
+	border-radius: 5px;
+	box-shadow: 0 10px 10px -5px;
+}
+
+.autocomplete ul li {
+	padding: 5px;
+}
+
+h1 {
+	font-size: 1.4em;
+}

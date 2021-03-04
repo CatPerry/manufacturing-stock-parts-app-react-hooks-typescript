@@ -1,0 +1,27 @@
+.autocomplete {
+	display: block;
+}
+
+.autocomplete ul {
+	overflow-y: auto;
+	max-height: 140px;
+	padding: 0;
+	margin-top: 5px;
+	list-style: none;
+	font-weight: 600;
+	width: 300px;
+	color: #000;
+}
+
+.autocomplete ul {
+	border: none;
+}
+
+.autocomplete-active,
+.autocomplete li:hover {
+	background-color: #2763d1;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	width: 300px;
+}

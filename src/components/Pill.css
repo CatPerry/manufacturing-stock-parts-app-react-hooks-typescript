@@ -1,0 +1,15 @@
+.out-of-stock,
+.low-stock {
+	min-width: 25px;
+	font-size: 0.8em;
+	background-color: rgb(247, 140, 140);
+	border-radius: 20px;
+	padding: 5px 9px;
+	margin-left: 10px;
+	vertical-align: top;
+	justify-content: flex-end;
+}
+
+.low-stock {
+	background-color: rgb(247, 222, 140);
+}
