@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, Dispatch, FunctionComponent, SetStateAction } from 'react';
 import Pill from './Pill';
-import './Pill.css';
 
 interface PartType {
 	id: number;
@@ -8,15 +7,20 @@ interface PartType {
 	instock: string;
 	price: string;
 }
+interface TableProps {
+	handleSort: (sortBy: string) => void;
+	parts: PartType[];
+}
 
-const Table = ({ parts }: { parts: PartType[] }) => {
+const Table: FunctionComponent<TableProps> = ({ parts, handleSort }) => {
 	return (
 		<table>
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Amt In Stock</th>
+					<th onClick={() => handleSort('id')}>ID</th>
+					<th onClick={() => handleSort('name')}>Name</th>
+					<th onClick={() => handleSort('instock')}>Amt In Stock</th>
+					<th onClick={() => handleSort('price')}>Price</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,6 +42,7 @@ const Table = ({ parts }: { parts: PartType[] }) => {
 									parseInt(part.instock)
 								)}
 							</td>
+							<td>{`$${part.price}`}</td>
 						</tr>
 					);
 				})}

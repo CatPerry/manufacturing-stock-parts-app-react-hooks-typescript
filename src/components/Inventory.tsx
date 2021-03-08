@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Inventory.css';
 import Autocomplete from './autocomplete/Autocomplete';
 import Table from './Table';
@@ -12,8 +12,11 @@ interface PartType {
 
 function Inventory() {
 	const [parts, setParts] = useState<PartType[]>([]);
-	const [queryParams, setQueryParams] = useState('');
-	const [selected, setSelected] = useState('');
+	const [queryParams, setQueryParams] = useState<string>('');
+	const [selected, setSelected] = useState<string>('');
+	const [currentSort, setCurrentSort] = useState<string>('down');
+
+	const ref = useRef<HTMLDivElement>(null);
 
 	const filterBySelected = (): PartType[] => {
 		return parts.filter((part) => part.name.toLowerCase() === selected.toLowerCase());
@@ -27,6 +30,33 @@ function Inventory() {
 				(parseInt(part.instock) < 50 && queryParams.includes('low')) ||
 				(parseInt(part.instock) === 0 && queryParams.includes('out')),
 		);
+	};
+
+	const handleSort = (sortBy: string): void => {
+		const sortDesc = [...parts].sort((a: any, b: any) => {
+			if (sortBy !== 'price' && sortBy !== 'instock') {
+				return a[sortBy] < b[sortBy] ? -1 : a[sortBy] > b[sortBy] ? 1 : 0;
+			} else {
+				return a[sortBy] - b[sortBy];
+			}
+		});
+		const sortAsc = [...parts].sort((a: any, b: any) => {
+			if (sortBy !== 'price' && sortBy !== 'instock') {
+				return a[sortBy] > b[sortBy] ? -1 : a[sortBy] < b[sortBy] ? 1 : 0;
+			} else {
+				return b[sortBy] - a[sortBy];
+			}
+		});
+
+		if (currentSort === 'up') {
+			setCurrentSort('down');
+			setParts(sortDesc);
+		}
+
+		if (currentSort === 'down') {
+			setCurrentSort('up');
+			setParts(sortAsc);
+		}
 	};
 
 	useEffect(() => {
@@ -54,7 +84,7 @@ function Inventory() {
 
 	return (
 		<main className='inventory-container'>
-			<div className='search-panel'>
+			<div className={`search-panel`} ref={ref}>
 				<div className='dropdown'>
 					<h1>Search Inventory</h1>
 					<Autocomplete
@@ -75,6 +105,7 @@ function Inventory() {
 				</button>
 			</div>
 			<Table
+				handleSort={handleSort}
 				parts={selected ? filterBySelected() : queryParams.length > 0 ? filterByQuery() : parts}
 			/>
 		</main>

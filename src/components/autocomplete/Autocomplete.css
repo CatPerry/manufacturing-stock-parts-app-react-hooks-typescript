@@ -4,6 +4,7 @@
 
 .autocomplete ul {
 	overflow-y: auto;
+	overflow-x: hidden;
 	max-height: 140px;
 	padding: 0;
 	margin-top: 5px;
