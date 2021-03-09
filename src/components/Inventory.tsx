@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, ChangeEvent } from 'react';
 import './Inventory.css';
 import Autocomplete from './autocomplete/Autocomplete';
 import Table from './Table';
+import { filterByInstockLevel } from '../filters/filters';
 
 interface PartType {
 	id: number;
@@ -15,7 +16,7 @@ function Inventory() {
 	const [queryParams, setQueryParams] = useState<string>('');
 	const [selected, setSelected] = useState<string>('');
 	const [currentSort, setCurrentSort] = useState<string>('down');
-
+	const [instockInputValue, setInstockInputValue] = useState<number>(50);
 	const ref = useRef<HTMLDivElement>(null);
 
 	const filterBySelected = (): PartType[] => {
@@ -27,9 +28,13 @@ function Inventory() {
 			(part) =>
 				part.name.toLowerCase() === queryParams.toLowerCase() ||
 				part.name.toLowerCase().includes(queryParams.toLowerCase()) ||
-				(parseInt(part.instock) < 50 && queryParams.includes('low')) ||
+				(filterByInstockLevel(part.instock, instockInputValue) && queryParams.includes('low')) ||
 				(parseInt(part.instock) === 0 && queryParams.includes('out')),
 		);
+	};
+
+	const handleInstockInput = (e: ChangeEvent<HTMLInputElement>) => {
+		setInstockInputValue(parseInt(e.target.value));
 	};
 
 	const handleSort = (sortBy: string): void => {
@@ -103,8 +108,11 @@ function Inventory() {
 				>
 					Show All
 				</button>
+
+				<input type='number' value={instockInputValue} onChange={(e) => handleInstockInput(e)} />
 			</div>
 			<Table
+				userSetInstockLimit={instockInputValue}
 				handleSort={handleSort}
 				parts={selected ? filterBySelected() : queryParams.length > 0 ? filterByQuery() : parts}
 			/>

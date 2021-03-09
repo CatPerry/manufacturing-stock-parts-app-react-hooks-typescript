@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, FunctionComponent, SetStateAction } from 'react';
+import React, { useState, Dispatch, FunctionComponent } from 'react';
 import Pill from './Pill';
 
 interface PartType {
@@ -10,9 +10,10 @@ interface PartType {
 interface TableProps {
 	handleSort: (sortBy: string) => void;
 	parts: PartType[];
+	userSetInstockLimit: number;
 }
 
-const Table: FunctionComponent<TableProps> = ({ parts, handleSort }) => {
+const Table: FunctionComponent<TableProps> = ({ parts, handleSort, userSetInstockLimit }) => {
 	return (
 		<table>
 			<thead>
@@ -34,7 +35,7 @@ const Table: FunctionComponent<TableProps> = ({ parts, handleSort }) => {
 									<span className='stock-info'>
 										{parseInt(part.instock)} <Pill type='out-of-stock' />
 									</span>
-								) : parseInt(part.instock) < parseInt('50') ? (
+								) : parseInt(part.instock) < userSetInstockLimit ? (
 									<span className='stock-info'>
 										{parseInt(part.instock)} <Pill type='low-stock' />
 									</span>
